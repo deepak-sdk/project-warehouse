@@ -1,0 +1,28 @@
+.warehouse-list-table{
+    width: 100%;
+   display: flex;
+   justify-content: center;
+}
+table {
+    border-collapse: collapse;
+  }
+td,th{
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.green-dot{
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #6be585;
+}
+.red-dot{
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #dd3e54;
+}
