@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { Nav } from "./components/Nav";
-import { WareHouseList } from "./components/WareHouseList";
+// import { WareHouseList } from "./components/WareHouseList";
 import { WareHouse } from "./set-two-components/WareHouse";
 import { Warehousetable } from "./set-two-components/warehousetable";
 import "./App.css";

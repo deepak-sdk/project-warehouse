@@ -5,46 +5,46 @@ import { GlobalSearch } from "./globalSearch";
 export function Warehousedata({ warehouse }) {
   const history = useHistory();
 
-  const data = React.useMemo(
-    () => [
-      {
-        name: "Warehouse-165",
-        code: "W-00001",
-        id: 1,
-        city: "Delhi",
-        space_available: 1234,
-        type: "Leasable Space",
-        cluster: "cluster-a-32",
-        is_registered: true,
-        is_live: false,
-      },
-      {
-        name: "Warehouse-276",
-        code: "W-00002",
-        id: 2,
-        city: "Chennai",
-        space_available: 124,
-        type: "Warehouse Service",
-        cluster: "cluster-a-1",
-        is_registered: true,
-        is_live: false,
-      },
-    ],
-    []
-  );
+//   const data = React.useMemo(
+//     () => [
+//       {
+//         name: "Warehouse-165",
+//         code: "W-00001",
+//         id: 1,
+//         city: "Delhi",
+//         space_available: 1234,
+//         type: "Leasable Space",
+//         cluster: "cluster-a-32",
+//         is_registered: true,
+//         is_live: false,
+//       },
+//       {
+//         name: "Warehouse-276",
+//         code: "W-00002",
+//         id: 2,
+//         city: "Chennai",
+//         space_available: 124,
+//         type: "Warehouse Service",
+//         cluster: "cluster-a-1",
+//         is_registered: true,
+//         is_live: false,
+//       },
+//     ],
+//     []
+//   );
 
-  const columns = React.useMemo(
-    () => [
-      { Header: "Id", accessor: "id" },
-      { Header: "Name", accessor: "name" },
-      { Header: "Code", accessor: "code" },
-      { Header: "City", accessor: "city" },
-      { Header: "Type", accessor: "type" },
-      { Header: "Cluster", accessor: "cluster" },
-      { Header: "Space Available", accessor: "space_available" },
-    ],
-    []
-  );
+//   const columns = React.useMemo(
+//     () => [
+//       { Header: "Id", accessor: "id" },
+//       { Header: "Name", accessor: "name" },
+//       { Header: "Code", accessor: "code" },
+//       { Header: "City", accessor: "city" },
+//       { Header: "Type", accessor: "type" },
+//       { Header: "Cluster", accessor: "cluster" },
+//       { Header: "Space Available", accessor: "space_available" },
+//     ],
+//     []
+//   );
 
   const warehouseData = React.useMemo(() => [...warehouse], [warehouse]);
   const warehouseColumns = React.useMemo(

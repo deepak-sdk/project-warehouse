@@ -44,3 +44,56 @@ button:hover {
   overflow-x: scroll;
  max-width: 100%;
 }
+.warehouse-list-table {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+table {
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color: rgba(177, 176, 174, 0.137);
+}
+td,
+th {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+
+.search-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+/* .green-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #6be585;
+}
+.red-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #dd3e54;
+} */
+
+
+.nav-bar--search > input {
+  font-family: "Poppins", sans-serif;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid gray;
+  height: 40px;
+  width: 400px;
+  border-radius: 0;
+}
+
+.nav-bar--search > input:focus {
+  outline: none;
+}

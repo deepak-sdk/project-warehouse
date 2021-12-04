@@ -14,7 +14,8 @@ export function GlobalSearch({
 
   return (
     <div className="search-filter">
-      <div className="nav-bar--search">
+          <div className="nav-bar--search">
+             
         <input
                   value={value || ""}
                   onChange={(e) => {
