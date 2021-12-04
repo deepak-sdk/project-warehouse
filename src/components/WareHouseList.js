@@ -12,8 +12,9 @@ export function WareHouseList() {
 
   function search(rows) {
     return rows.filter(
+      //issue on q.toLowerCase()
       (row) =>
-        row.name.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
+        row.name.toLowerCase().indexOf(q.toLowerCase()) > -1 ||  
         row.city.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
         row.type.toLowerCase().indexOf(q.toLowerCase()) > -1
     );
