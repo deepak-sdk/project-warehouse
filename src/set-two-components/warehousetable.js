@@ -30,7 +30,7 @@ export function Warehousetable() {
 
   return (
     <>
-      <SearchFilter q={q} setQ={setQ} />
+      {/* <SearchFilter q={q} setQ={setQ} /> */}
       <Warehousedata warehouse={search(warehouse)} />
     </>
   );

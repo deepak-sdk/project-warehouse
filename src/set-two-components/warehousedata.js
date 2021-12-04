@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useTable } from "react-table";
-
+import { useGlobalFilter, useSortBy, useTable } from "react-table";
+import { GlobalSearch } from "./globalSearch";
 export function Warehousedata({ warehouse }) {
   const history = useHistory();
 
@@ -80,25 +80,42 @@ export function Warehousedata({ warehouse }) {
       columns: warehouseColumns,
       data: warehouseData,
     },
-    tableEditHooks
+    useGlobalFilter,
+    tableEditHooks,
+    useSortBy
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    preGlobalFilteredRows,
+    setGlobalFilter,
+    state,
+  } = tableInstance;
   return (
-    <div>
+    <div className="warehousedata-table">
+      <GlobalSearch
+        preGlobalFilteredRows={preGlobalFilteredRows}
+        setGlobalFilter={setGlobalFilter}
+        globalFilter={state.globalFilter}
+      />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th
-                  {...column.getHeaderProps()}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   style={{
                     borderBottom: "solid 3px red",
                   }}
                 >
                   {column.render("Header")}
+                  {"  "}
+                  {column.isSorted ? (column.isSortedDesc ? "⬇️" : "⬆️") : ""}
                 </th>
               ))}
             </tr>
