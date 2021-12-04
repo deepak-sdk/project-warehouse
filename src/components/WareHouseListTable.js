@@ -1,32 +1,22 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 import "./WareHouseListTable.css";
 
-export function WareHouseListTable({
-  id,
-  name,
-  code,
-  type,
-  city,
-  cluster,
-  live,
-  space,
-  registered,
-}) {
-  const history = useHistory();
+export function WareHouseListTable({ data }) {
 
-  return (
-    <>
-      <td>{id}</td>
-      <td onClick={() => history.push("./" + id)}>{name}</td>
-      <td>{code}</td>
-      <td>{type}</td>
-      <td>{city}</td>
-      <td>{space}</td>
-      <td>{cluster}</td>
-      <td>{registered ? <div className="green-dot"/> : <div className="red-dot"/>}</td>
-      <td>{live ? <div className="green-dot"/>: <div className="red-dot"/>}</td>
-    </>
-  );
+  const columns = data[0] && Object.keys(data[0])
+  // console.log()
+
+  return <table cellPadding={0} cellSpacing={0}>
+    <thead>
+      <tr>{data[0] && columns.map(heading => <th>{heading}</th>)}</tr>
+    </thead>
+    <tbody>
+      {data.map(row => <tr>
+        {
+          columns.map(column => <td>{row[column]}</td>)
+        }
+      </tr>)}
+    </tbody>
+  </table>;
 }

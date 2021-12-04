@@ -10,47 +10,7 @@
   color: whitesmoke;
 }
 
-.nav-bar--search,.nav-bar--filter{
-  margin-right: 40px;
-  display: flex;
-}
-
-.nav-bar--filter > select:focus {
-  outline: none;
-}
-
-.nav-bar--filter > select{
-  font-family: "Poppins", sans-serif;
-  padding: 5px;
-  background-color: whitesmoke;
-  border: none;
-  height: 35px;
-  width: 100px;
-  border-radius: 0;
-}
 
 
-.nav-bar--search > input {
-  font-family: "Poppins", sans-serif;
-  padding: 5px;
-  background-color: whitesmoke;
-  border: none;
-  height: 35px;
-  width: 300px;
-  border-radius: 0;
-}
 
-.nav-bar--search > input:focus {
-  outline: none;
-}
-.nav-bar--search > button {
-  height: 35px;
-  border: none;
-  font-family: "Poppins", sans-serif;
-  padding: 5px;
-  background-color: #203a43e1;
-  color: white;
-}
-.nav-bar--search > button:hover {
-  background-color: #203a439f;
-}
+

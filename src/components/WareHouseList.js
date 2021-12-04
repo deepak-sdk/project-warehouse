@@ -1,66 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../MOCK_API";
 import { WareHouseListTable } from "./WareHouseListTable";
+import { SearchFilter } from "./SearchFilter";
+
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 export function WareHouseList() {
   const [allData, setAllData] = useState([]);
+  const [q, setQ] = useState([]);
 
-  const getData = () => {
-    async function AllWareHouse() {
-      const data = await fetch(`${API_URL}`);
-      const allData = await data.json();
-      setAllData(allData);
-    }
-    AllWareHouse();
-  };
-  useEffect(getData, []);
+  function search(rows) {
+    return rows.filter(
+      (row) =>
+        row.name.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
+        row.city.toLowerCase().indexOf(q.toLowerCase()) > -1 ||
+        row.type.toLowerCase().indexOf(q.toLowerCase()) > -1
+    );
+  }
+
+  useEffect(() => {
+    fetch(`${API_URL}`)
+      .then((response) => response.json())
+      .then((json) => setAllData(json));
+  }, []);
 
   return (
     <div className="warehouse-list">
-      <div className="warehouse-list-table">
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Code</th>
-            <th>Type</th>
-            <th>City</th>
-            <th>Space Available</th>
-            <th>Cluster</th>
-            <th>Registered</th>
-            <th>Live</th>
-          </tr>
+      <SearchFilter q={q} setQ={setQ} />
 
-          {allData.map(
-            ({
-              id,
-              name,
-              code,
-              type,
-              city,
-              cluster,
-              is_live,
-              is_registered,
-              space_available,
-            }) => (
-              <tr>
-                <WareHouseListTable
-                  key={id}
-                  id={id}
-                  name={name}
-                  code={code}
-                  type={type}
-                  city={city}
-                  cluster={cluster}
-                  space={space_available}
-                  live={is_live}
-                  registered={is_registered}
-                />
-              </tr>
-            )
-          )}
-        </table>
+      <div className="warehouse-list-table">
+        <WareHouseListTable data={search(allData)} />
       </div>
     </div>
   );
 }
+
+// npm add es6-promise
+// npm isomorphic fetch
