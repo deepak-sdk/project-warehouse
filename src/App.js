@@ -1,11 +1,15 @@
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Nav } from "./components/Nav";
-// import { WareHouseList } from "./components/WareHouseList";
-import { WareHouse } from "./set-two-components/WareHouse";
-import { Warehousetable } from "./set-two-components/warehousetable";
 import "./App.css";
+import { WareHouseData } from "./components/WareHouseData";
+import { EditPage } from "./components/EditPage";
+
+import AppState from "./context/AppState";
 
 function App() {
+
+
   return (
     <div className="App">
       {/* set-1
@@ -23,16 +27,19 @@ function App() {
       </Switch> */}
 
       {/* {set-2} */}
+
       <Nav />
       <div className="react-table">
-        <Switch>
-          <Route exact path="/">
-            <Warehousetable />
-          </Route>
-          <Route path="/:id">
-            <WareHouse />
-          </Route>
-        </Switch>
+        <AppState>
+          <Switch>
+            <Route exact path="/">
+              <WareHouseData />
+            </Route>
+            <Route path="/:id">
+              <EditPage/>
+            </Route>
+          </Switch>
+        </AppState>
       </div>
     </div>
   );

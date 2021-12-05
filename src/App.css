@@ -68,20 +68,7 @@ th {
   justify-content: center;
   margin-bottom: 10px;
 }
-/* .green-dot {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: #6be585;
-}
-.red-dot {
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: #dd3e54;
-} */
+
 
 
 .nav-bar--search > input {
@@ -97,3 +84,4 @@ th {
 .nav-bar--search > input:focus {
   outline: none;
 }
+

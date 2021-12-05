@@ -4,6 +4,7 @@
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .nav-bar-title>p {
   font-size: 1.5rem;
