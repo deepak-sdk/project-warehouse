@@ -1,0 +1,33 @@
+.editpage--container {
+  width: 50%;
+  text-align: center;
+}
+.warehouse-data--heading {
+  margin: 20px;
+}
+.warehouse-data--details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+.warehouse-data--details > input {
+  font-family: "Poppins", sans-serif;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid gray;
+  height: 40px;
+  width: 300px;
+  max-width: 50%;
+  border-radius: 5px;
+}
+.warehouse-data--button {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+.warehouse-data--button > button{
+  margin: 5px;
+}
