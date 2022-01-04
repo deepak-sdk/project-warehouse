@@ -1,5 +1,9 @@
-import { createContext } from 'react';
+import React from "react";
 
-const appContext = createContext()
+const AppContext = React.createContext({
+  warehouse: [],
+  loading: false,
+  error: null,
+});
 
-export default appContext;
+export default AppContext;

@@ -5,8 +5,7 @@ import { GlobalSearch } from "./globalSearch";
 import AppContext from "../context/app-context";
 
 export function WareHouseData() {
-
-  const [warehouse] = useContext(AppContext)
+  const ctx = useContext(AppContext);
 
   const history = useHistory();
 
@@ -51,11 +50,11 @@ export function WareHouseData() {
   //     []
   //   );
 
-  const warehouseData = useMemo(() => [...warehouse], [warehouse]);
+  const warehouseData = useMemo(() => [...ctx.warehouse], [ctx.warehouse]);
   const warehouseColumns = useMemo(
     () =>
-      warehouse[0]
-        ? Object.keys(warehouse[0])
+      ctx.warehouse[0]
+        ? Object.keys(ctx.warehouse[0])
             .filter((key) => key !== "is_live")
             .filter((key) => key !== "is_registered")
             .map((key) => {
@@ -63,7 +62,7 @@ export function WareHouseData() {
               return { Header: key, accessor: key };
             })
         : [],
-    [warehouse]
+    [ctx.warehouse]
   );
 
   // console.log(warehouse[0])
@@ -84,9 +83,8 @@ export function WareHouseData() {
 
   const tableInstance = useTable(
     {
-      
       data: warehouseData,
-      columns: warehouseColumns
+      columns: warehouseColumns,
     },
     useGlobalFilter,
     tableEditHooks,
@@ -112,6 +110,10 @@ export function WareHouseData() {
       />
       <div className="warehousedata-table">
         <table {...getTableProps()}>
+          {ctx.loading && <h1>A moment please...</h1>}
+          {ctx.error && (
+            <div>{`There is a problem fetching the post data - ${ctx.error}`}</div>
+          )}
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
