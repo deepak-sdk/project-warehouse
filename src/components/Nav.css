@@ -2,16 +2,20 @@
   background-color: #0f2027;
   padding: 20px;
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom:10px ;
 }
+
 .nav-bar-title>p {
   font-size: 1.5rem;
   color: whitesmoke;
+  cursor: pointer;
 }
 
-
-
-
-
+.nav-bar-title {
+  display: flex;
+  justify-content: space-between;
+}

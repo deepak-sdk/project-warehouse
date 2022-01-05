@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { useGlobalFilter, useSortBy, useTable } from "react-table";
 import { GlobalSearch } from "./globalSearch";
 import AppContext from "../context/app-context";
+import Button from "../UI/Button";
 
 export function WareHouseData() {
   const ctx = useContext(AppContext);
@@ -73,9 +74,9 @@ export function WareHouseData() {
         id: "Edit ID",
         Header: "Edit",
         Cell: ({ row }) => (
-          <button onClick={() => history.push("/" + row.values.id)}>
+          <Button onClick={() => history.push("/edit/" + row.values.id)}>
             Edit
-          </button>
+          </Button>
         ),
       },
     ]);
@@ -110,10 +111,10 @@ export function WareHouseData() {
       />
       <div className="warehousedata-table">
         <table {...getTableProps()}>
-          {ctx.loading && <h1>A moment please...</h1>}
+          {/* {ctx.loading && <h1>A moment please...</h1>}
           {ctx.error && (
             <div>{`There is a problem fetching the post data - ${ctx.error}`}</div>
-          )}
+          )} */}
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>

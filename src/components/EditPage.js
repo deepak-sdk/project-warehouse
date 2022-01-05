@@ -45,6 +45,8 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
   const [type, setType] = useState(warehouse[id - 1]?.type);
   const [cluster, setCluster] = useState(warehouse[id - 1]?.cluster);
 
+  // const [editWarehouseData, setEditWarehouseData] = useState(false);
+
   useEffect(() => {
     setName(warehouse[id - 1]?.name);
     setCode(warehouse[id - 1]?.code);
@@ -54,9 +56,7 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
     setCluster(warehouse[id - 1]?.cluster);
   }, [id, warehouse]);
 
-  const discardWarehouse = () => {
-  
-}
+
 
   const editWarehouse = (e) => {
     e.preventDefault();
@@ -128,8 +128,9 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
         />
       </div>
       <div className="warehouse-data--button">
+        {" "}
         <button onClick={editWarehouse}>Save</button>
-        <button onClick={discardWarehouse}>Discard</button>
+        <button>Discard</button>
       </div>
     </div>
   );

@@ -4,12 +4,11 @@ import { Nav } from "./components/Nav";
 import "./App.css";
 import { WareHouseData } from "./components/WareHouseData";
 import { EditPage } from "./components/EditPage";
+import { AddPage } from "./components/AddPage";
 
 import AppState from "./context/AppState";
 
 function App() {
-
-
   return (
     <div className="App">
       {/* set-1
@@ -28,19 +27,24 @@ function App() {
 
       {/* {set-2} */}
 
-      <Nav />
-      <div className="react-table">
-        <AppState>
-          <Switch>
-            <Route exact path="/">
+      <AppState>
+        <Nav />
+        <Switch>
+          <Route exact path="/">
+            <div className="react-table">
               <WareHouseData />
-            </Route>
-            <Route path="/:id">
-              <EditPage/>
-            </Route>
-          </Switch>
-        </AppState>
-      </div>
+            </div>
+          </Route>
+
+          <Route path="/edit/:id">
+            <EditPage />
+          </Route>
+
+          <Route path="/add-warehouse">
+            <AddPage />
+          </Route>
+        </Switch>
+      </AppState>
     </div>
   );
 }

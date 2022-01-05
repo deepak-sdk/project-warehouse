@@ -1,0 +1,20 @@
+button {
+    height: 35px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    padding: 5px;
+    background-color: #203a43e1;
+    color: white;
+    width: fit-content;
+    padding: 0 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    /* transform: scale(1.0); */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    background-color: white;
+    color: #203a43e1;
+    border: 1px solid black;
+  }

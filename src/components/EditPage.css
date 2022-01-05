@@ -1,6 +1,10 @@
 .editpage--container {
-  width: 50%;
   text-align: center;
+  margin: 5rem 0 2rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .warehouse-data--heading {
   margin: 20px;
