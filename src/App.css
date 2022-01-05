@@ -67,3 +67,10 @@ th {
 .nav-bar--search > input:focus {
   outline: none;
 }
+.delete-warehouse{
+  background-color: #FF5959;
+}
+.delete-warehouse:hover{
+  border: 1px solid #FF5959;
+  color: #FF5959;
+}

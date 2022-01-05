@@ -4,6 +4,7 @@ import { useGlobalFilter, useSortBy, useTable } from "react-table";
 import { GlobalSearch } from "./globalSearch";
 import AppContext from "../context/app-context";
 import Button from "../UI/Button";
+import { API_URL } from "../MOCK_API";
 
 export function WareHouseData() {
   const ctx = useContext(AppContext);
@@ -76,6 +77,21 @@ export function WareHouseData() {
         Cell: ({ row }) => (
           <Button onClick={() => history.push("/edit/" + row.values.id)}>
             Edit
+          </Button>
+        ),
+      },
+      {
+        id: "Delete ID",
+        Header: "",
+        Cell: ({ row }) => (
+          <Button
+            className="delete-warehouse"
+            onClick={() => {
+              // console.log((row.values.code))
+              fetch(`${API_URL}/${row.values.id}`, { method: "DELETE" });
+            }}
+          >
+            Delete
           </Button>
         ),
       },
