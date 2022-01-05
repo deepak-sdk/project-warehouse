@@ -25,31 +25,31 @@ const AppState = (props) => {
 
   useEffect(() => {
     // onLoad();
+    setInterval(() => {
+      fetch(`https://616d506937f997001745d992.mockapi.io/warehouse`)
+        .then((response) => {
+          if (!response.ok) {
+            console.log(response.status);
+          }
+          // console.log(response)
+          return response.json();
+        })
+        .then((actualData) => {
+          setWarehouse(actualData);
+          // console.log(actualData);
+          setError("");
+        })
+        .catch((err) => {
+          setError(err.message);
+          setWarehouse([]);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 10000);
 
-    fetch(`https://616d506937f997001745d992.mockapi.io/warehouse`)
-      .then((response) => {
-        if (!response.ok) {
-          console.log(response.status);
-        }
-        // console.log(response)
-        return response.json();
-      })
-      .then((actualData) => {
-        setWarehouse(actualData);
-        // console.log(actualData);
-        setError("");
-      })
-      .catch((err) => {
-        setError(err.message);
-        setWarehouse([]);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
   }, []);
-
-
-
+ 
   return (
     <AppContext.Provider
       value={{

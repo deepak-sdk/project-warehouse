@@ -57,8 +57,6 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
     setCluster(warehouse[id - 1]?.cluster);
   }, [id, warehouse]);
 
-
-
   const editWarehouse = (e) => {
     e.preventDefault();
     const updateWarehouse = {
@@ -72,18 +70,19 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
 
     console.log(updateWarehouse);
     console.log(updatedWarehouse.id);
-    fetch(
-      "https://616d506937f997001745d992.mockapi.io/warehouse/" +
-        updatedWarehouse.id,
-      {
-        method: "PUT",
-        body: JSON.stringify(updateWarehouse),
-        headers: { "Content-Type": "application/json" },
-      }
-    )
-      .then((data) => data.json())
-      .then((wh) => setUpdatedWarehouse(wh))
-      .then(() => history.push("/"));
+      fetch(
+        "https://616d506937f997001745d992.mockapi.io/warehouse/" +
+          updatedWarehouse.id,
+        {
+          method: "PUT",
+          body: JSON.stringify(updateWarehouse),
+          headers: { "Content-Type": "application/json" },
+        }
+      )
+        .then((data) => data.json())
+        .then((wh) => setUpdatedWarehouse(wh))
+        .then(() => history.push("/"));
+
   };
   return (
     <div className="editpage--container">
