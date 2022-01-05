@@ -3,6 +3,7 @@ import AppContext from "../context/app-context";
 import { useParams, useHistory } from "react-router";
 // import { API_URL } from "../MOCK_API";
 import "./EditPage.css";
+import Button from "../UI/Button";
 
 export const EditPage = () => {
   const { id } = useParams();
@@ -129,8 +130,8 @@ const UpdateWarehouse = ({ updatedWarehouse, setUpdatedWarehouse }) => {
       </div>
       <div className="warehouse-data--button">
         {" "}
-        <button onClick={editWarehouse}>Save</button>
-        <button>Discard</button>
+        <Button onClick={editWarehouse}>Save</Button>
+        <Button>Discard</Button>
       </div>
     </div>
   );
